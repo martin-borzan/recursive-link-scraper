@@ -61,7 +61,6 @@ public class WebScraperService {
         }
 
         private HttpResponse<String> visitUri() {
-            // Uncomment for crude logging (be aware that knownUris.size() is called without critical section so it might not be up to date when printed):
             LOGGER.log(Level.INFO, "%s - # of known uris: %6d - uri: '%s' - label: '%s'".formatted(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd:hh-mm-ss")), KNOWN_URIS.size(), hyperlink.uri(), hyperlink.label()));
 
             HttpRequest request = HttpRequest.newBuilder().uri(hyperlink.uri()).GET().build();

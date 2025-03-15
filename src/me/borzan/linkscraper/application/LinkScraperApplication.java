@@ -12,7 +12,7 @@ import java.util.logging.Level;
 
 public class LinkScraperApplication {
     public static void main(String[] args) {
-        LoggingUtils.setRootLogLevel(Level.SEVERE);
+        LoggingUtils.setRootLogLevel(Level.SEVERE); // Set to INFO level for some crude logs.
 
         URI websiteUri = ArgsUtils.tryParseWebsiteFromArgs(args);
 
