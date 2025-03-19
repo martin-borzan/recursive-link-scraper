@@ -22,6 +22,10 @@ public class LinkScraperApplication {
         List<Hyperlink> allRecursiveDomainUris = service.scrapeUri(websiteUri).result().stream().sorted().toList();
 
         System.out.printf("Found %d unique URL-label pairs when visiting from '%s'%n", allRecursiveDomainUris.size(), websiteUri);
+        if(allRecursiveDomainUris.isEmpty()) {
+            return;
+        }
+
         System.out.println("Here they are, sorted by label in the format '<label>' ('<URL>'):");
         allRecursiveDomainUris.stream()
                 .map(Hyperlink::toString)

@@ -114,6 +114,9 @@ public final class PropagatingHyperlinkWebScraperWorker extends WebScraperWorker
         if (responseStringToParse == null) {
             responseStringToParse = "";
         }
+        if(response.statusCode() < 200 || response.statusCode() >= 300) {
+            logger.log(Level.INFO, "Received response with unexpected status code: %d".formatted(response.statusCode()));
+        }
         /*
          * I have omitted error handling of the response here.
          * One could parse the status code and decide what to do in each case. For this sort of demo application, I did not deem it a necessity.
